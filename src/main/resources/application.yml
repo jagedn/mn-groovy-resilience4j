@@ -1,0 +1,22 @@
+micronaut:
+  application:
+    name: testgroovy
+netty:
+  default:
+    allocator:
+      max-order: 3
+---
+resilience4j:
+  bulkhead:
+    enabled: true
+    configs:
+      default:
+        maxConcurrentCalls: 100
+        maxWaitDuration: PT30S
+  thread-pool-bulkhead:
+    enabled: true
+    configs:
+      default:
+        maxThreadPoolSize: 4
+        coreThreadPoolSize: 2
+        queueCapacity: 2
